@@ -1,11 +1,11 @@
-baseurl = "https://example.com/"  # Include trailing slash
-title = "Hugo Themes"
+baseurl = "https://sunlibo2390.github.io/"  # Include trailing slash
+title = "Bob Serling's Blog"
 theme = "hugo-swift-theme"
 # theme = "swift"
-author = "Steve Francia"
-copyright = "Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved."
+author = "Bob Serling"
+copyright = "Copyright © 2008–2018, Bob Serling and the Hugo Authors; all rights reserved."
 canonifyurls = true
-paginate = 4
+paginate = 8
 # Enable syntax highlighting
 # comment on delete the following lines 11 ~ 13
 pygmentsCodefences = true
@@ -16,8 +16,8 @@ pygmentsCodefencesGuessSyntax = true
     name = "Weru"
     url = "https://www.linkedin.com/in/dan-weru-profile/"
   [[params.authors]]
-    name = "yourName" # can be nickname # if fullName 👇🏻 isn't set, name will be displayed on author card
-    fullName = "Your Full Name" # optional. If set, it will display on author card
+    name = "sunlibo" # can be nickname # if fullName 👇🏻 isn't set, name will be displayed on author card
+    fullName = "Bob Serling" # optional. If set, it will display on author card
     bio = "It's time to flex. Write a short or not-so-short summary about yourself."
     photo = "myPhotoFile.jpg"
     url = "https://myURLofChoice.domain"
