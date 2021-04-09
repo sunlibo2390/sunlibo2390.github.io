@@ -8,14 +8,17 @@
 <meta property = 'og:locale' content = 'en_US' />
 <meta property="og:type" content="article">
 <meta property = 'og:title' content = '关于线性回归的一点思考' />
-<meta name="description" content="&emsp;&emsp;陈希孺先生在《数理统计学简史》的序言中提到，数理统计学是“收集和分析数据的科学与艺术”，并且着重强调了数理统计的艺术性，指出“统计方法要灵活使用”。而灵活使用统计方法的前提，是要深入理解和掌握方法，事实上，即便是最基本的模型也大有门道，在这里把自己的一些思考写下来。 …">
-<meta property = 'og:description' content = '&emsp;&emsp;陈希孺先生在《数理统计学简史》的序言中提到，数理统计学是“收集和分析数据的科学与艺术”，并且着重强调了数理统计的艺术性，指出“统计方法要灵活使用”。而灵活使用统计方法的前提，是要深入理解和掌握方法，事实上，即便是最基本的模型也大有门道，在这里把自己的一些思考写下来。 …'>
+<meta name="description" content="&emsp;&emsp;陈希孺先生在《数理统计学简史》的序言中提到，数理统计学是“收集和分析数据的科学与艺术”，并且着重强调了数理统计的艺术性，指出“统计方法要灵活使用”。而灵活使用统计方法的前提，是要深入理解和掌握方法，事实上，即便是最基本的模型也大有门道，在这里把自己的一些思考写下来。
+ 1. …">
+<meta property = 'og:description' content = '&emsp;&emsp;陈希孺先生在《数理统计学简史》的序言中提到，数理统计学是“收集和分析数据的科学与艺术”，并且着重强调了数理统计的艺术性，指出“统计方法要灵活使用”。而灵活使用统计方法的前提，是要深入理解和掌握方法，事实上，即便是最基本的模型也大有门道，在这里把自己的一些思考写下来。
+ 1. …'>
 <meta property = 'og:url' content = 'https://sunlibo2390.github.io/post/2021-04-08-%E5%AF%B9%E4%B8%80%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E7%9A%84%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/' />
 <meta property = 'og:image' content = 'https://sunlibo2390.github.io/images/Galton.png'/>
 <meta name = 'twitter:card' content = 'summary_large_image' />
 <meta name = 'twitter:creator' content = ''>
 <meta name = 'twitter:title' content = '关于线性回归的一点思考' />
-<meta property = 'twitter:description'  content = '&emsp;&emsp;陈希孺先生在《数理统计学简史》的序言中提到，数理统计学是“收集和分析数据的科学与艺术”，并且着重强调了数理统计的艺术性，指出“统计方法要灵活使用”。而灵活使用统计方法的前提，是要深入理解和掌握方法，事实上，即便是最基本的模型也大有门道，在这里把自己的一些思考写下来。 …'/>
+<meta property = 'twitter:description'  content = '&emsp;&emsp;陈希孺先生在《数理统计学简史》的序言中提到，数理统计学是“收集和分析数据的科学与艺术”，并且着重强调了数理统计的艺术性，指出“统计方法要灵活使用”。而灵活使用统计方法的前提，是要深入理解和掌握方法，事实上，即便是最基本的模型也大有门道，在这里把自己的一些思考写下来。
+ 1. …'/>
 <meta name = 'twitter:image' content = 'https://sunlibo2390.github.io/images/Galton.png' />
 <link rel='apple-touch-icon' sizes='180x180' href='https://sunlibo2390.github.io/images/icons/apple-touch-icon.png'>
 <link rel='icon' type='image/png' sizes='32x32' href='https://sunlibo2390.github.io/images/icons/favicon-32x32.png'>
@@ -55,7 +58,7 @@
 <p>&emsp;&emsp;陈希孺先生在《数理统计学简史》的序言中提到，数理统计学是“收集和分析数据的科学与艺术”，并且着重强调了数理统计的艺术性，指出“统计方法要灵活使用”。而灵活使用统计方法的前提，是要深入理解和掌握方法，事实上，即便是最基本的模型也大有门道，在这里把自己的一些思考写下来。</p>
 </blockquote>
 
-<h1 id="线性回归的提出">线性回归的提出</h1>
+<h1 id="1--线性回归的提出">1.  线性回归的提出</h1>
 
 <p>&emsp;&emsp;“回归”一词是弗朗西斯·高尔登对父母身高和子女身高关系的研究中提出的。彼时基因已经被发现，并且人们已经认识到基因对个体性状的显著影响。基于这样的认识，高尔登一开始认为子女身高的分布应与其父母身高的分布不同。但调查结果却并非如此，反而显示子女身高与父母身高近似遵循同一正态分布。但是根据拉普拉斯中心极限定理，正态分布是“大量微小因素共同作用”的结果，而遗传对子女身高而言并非“微小因素”，这就产生了矛盾。</p>
 
@@ -65,7 +68,7 @@
 
 <p>&emsp;&emsp;借助回归和相关，线性回归得以初步建立，并发展成为多元线性回归，至今仍是诸多领域中十分有效的分析工具。但是许多使用者对于线性回归的认识与理解不够，要么得出经不起推敲的结论，要么进行的直接是无意义的回归。下面给出一个线性回归的实例，以指出一些值得注意的点。</p>
 
-<h1 id="一个实例">一个实例</h1>
+<h1 id="2--一个实例">2.  一个实例</h1>
 
 <p>&emsp;&emsp;现有某一班级全体学生期末各科成绩的数据，部分数据如下：</p>
 
@@ -77,9 +80,15 @@
 
 <p>&emsp;&emsp;得到回归方程：</p>
 
-<p><center><span  class="math">\(sum = 62.657428+5.818403*chi\)</span></center></p>
+<p><center>
+<span  class="math">\(
+sum = 62.657428+5.818403*chi
+\tag{1.1}
+\label{eq:1.1}
+\)</span>
+</center></p>
 
-<p>对于该回归模型，可以这样理解：</p>
+<p>&emsp;&emsp;对于该回归模型，可以这样理解：</p>
 
 <p><center><span  class="math">\(总成绩=语文成绩可以解释的部分+语文成绩无法解释的部分\)</span></center></p>
 
@@ -99,13 +108,13 @@
 \right. 
 \]</span></p>
 
-<p>&emsp;&emsp;上述每个回归方程均可以做如下理解：</p>
+<p>&emsp;&emsp;将上述各式相加后等号左侧为：<span  class="math">\(62.657428+5.818403*chi\)</span>。对比\eqref{eq:1.1}，发现两式系数完全相同。此外，对上述每个回归方程均可以做如下理解：</p>
 
 <p><center><span  class="math">\(某科成绩=与语文成绩有关的部分+与语文成绩无关的部分\)</span></center></p>
 
 <p>&emsp;&emsp;其中，“语文成绩可以解释的部分”指语文成绩与该科成绩的相关关系，“语文成绩无法解释的部分”则指其他未考虑因素的期望值影响的部分与随机误差。下面对后一句进行进一步的解释。</p>
 
-<h1 id="进一步解释">进一步解释</h1>
+<h1 id="3--进一步解释">3.  进一步解释</h1>
 
 <p>&emsp;&emsp;为了说明后一句，我们进行如下的模拟实验：设随机变量<span  class="math">\(X\sim N(0,1),Y\sim N(2,4)\)</span>，<span  class="math">\(X\)</span>与<span  class="math">\(Y\)</span>相互独立。设随机变量<span  class="math">\(Z=1+0.5*X+0.5*Y\)</span>,易知<span  class="math">\(Z\sim N(2,\frac{5}{4})\)</span>，并且有</p>
 
@@ -121,8 +130,8 @@
 <center>
 \begin{equation}
 Z=1.961828+0.466815*X
-\tag{2.1}
-\label{eq:2.1}
+\tag{3.1}
+\label{eq:3.1}
 \end{equation}
 </center></p>
 
@@ -131,12 +140,12 @@ Z=1.961828+0.466815*X
 <p><center>
 \begin{equation}
 Z=1.960929+0.500000*X
-\tag{2.2}
-\label{eq:2.2}
+\tag{3.2}
+\label{eq:3.2}
 \end{equation}
 </center></p>
 
-<p>可以发现\eqref{eq:2.1}与\eqref{eq:2.2}式十分相近。
+<p>可以发现\eqref{eq:3.1}与\eqref{eq:3.2}式十分相近。
 <center>
 <figure><img src="images/fig3.png" alt=""></figure>
 </center>
