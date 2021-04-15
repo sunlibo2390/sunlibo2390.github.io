@@ -2,6 +2,7 @@
 date: 2014-03-10
 title: Migrate to Hugo from Jekyll
 image: 'speakers.jpg'
+draft: true
 ---
 
 ## Move static content to `static`

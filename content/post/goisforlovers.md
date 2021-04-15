@@ -14,6 +14,7 @@ categories = [
     "golang",
 ]
 image = "fast-lane.jpg"
+draft = true
 +++
 
 Hugo uses the excellent [Go][] [html/template][gohtmltemplate] library for
